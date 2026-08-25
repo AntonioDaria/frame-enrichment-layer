@@ -108,3 +108,7 @@ class Subscriber(Protocol):
     async def asubscribe(self, topic: str, handler: AsyncMessageHandler) -> None:
         """Async form of subscribe, with identical semantics."""
         ...
+
+
+class Broker(Publisher, Subscriber, Protocol):
+    """A transport that both publishes and subscribes - what the worker needs."""
